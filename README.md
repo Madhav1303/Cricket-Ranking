@@ -138,8 +138,8 @@ This project is for educational purposes.
 
 ## 👨‍💻 Author
 
-**Madhav**
-B.Tech CSE (Data Science)
+**Madhav Kishore K S**<br>
+B.Tech CSE (Data Science)<br>
 VIT Vellore
 
 ---
