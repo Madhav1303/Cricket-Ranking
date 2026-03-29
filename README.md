@@ -4,7 +4,7 @@
 
 The **Cricket Ranking System** is a web-based application built using **Django** and **Django REST Framework** that allows users to manage and view cricket player rankings across different formats such as **ODI, T20, and Test**.
 
-This project was developed as part of an **Internship Project (Month Year - Month Year)** *(dummy dates – can be updated)*.
+This project was developed as part of an **Internship I did in CDAC in May 2025**.
 
 ---
 
