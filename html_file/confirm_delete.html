@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Delete</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff3f3;
+            padding: 40px;
+        }
+
+        .delete-container {
+            width: 50%;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border: 2px solid #e57373;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #d32f2f;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .buttons button,
+        .buttons a {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons button {
+            background-color: #d32f2f;
+            color: white;
+        }
+
+        .buttons button:hover {
+            background-color: #b71c1c;
+        }
+
+        .buttons a {
+            background-color: #ccc;
+            color: #333;
+        }
+
+        .buttons a:hover {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="delete-container">
+        <h2>Confirm Delete</h2>
+        <p>Are you sure you want to delete <strong>{{ player.name }}</strong> from the player list?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="buttons">
+                <button type="submit">Yes, Delete</button>
+                <a href="{% url 'players_list' %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

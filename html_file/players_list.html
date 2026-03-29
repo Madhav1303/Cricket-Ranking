@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cricket Players List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .button-bar {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .button-bar a {
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #1e88e5;
+            color: white;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-bar a:hover {
+            background-color: #1565c0;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1e88e5;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .player-rank {
+            font-weight: bold;
+            color: #1e88e5;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>International Cricket Players</h1>
+
+    <div class="button-bar">
+        <a href="{% url 'add_player' %}">➕ Add Player</a>
+        <a href="{% url 'players_list' %}">📃 Player List</a>
+        <a href="{% url 'odi_rankings' %}">📊 ODI Rankings</a>
+        <a href="{% url 'test_rankings' %}">📊 TEST Rankings</a>
+        <a href="{% url 't20_rankings' %}">📊  T20 Rankings</a>
+        
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Team</th>
+                <th>Role</th>
+                <th>Test matches </th>
+                <th>ODI matches </th>
+                <th>T20 matches </th>
+                <th>Test Runs</th>
+                <th>ODI Runs</th>
+                <th>T20 Runs</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players %}
+            <tr>
+                <td class="player-rank">{{ player.id }}</td>
+                <td>{{ player.name }}</td>
+                <td>{{player.dob}}</td>
+                <td>{{ player.nationality }}</td>
+                <td>{{ player.role }}</td>
+                <td>{{ player.num_test_matches}}</td>
+                <td>{{ player.num_odi_matches}}</td>
+                <td>{{ player.num_t20_matches}}</td>
+                <td>{{ player.totalruns_test_matches}}</td>
+                <td>{{ player.totalruns_odi_matches}}</td>
+                <td>{{ player.totalruns_t20_matches}}</td>
+                <td>
+                     <a href="{% url 'update_player' player.id %}" title="Edit Player" style="margin-right: 8px;">✏️</a>
+                    <a href="{% url 'delete_player' player.id %}" style="color: red;">🗑️</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+virtual1/
+__pycache__/
+*.py[cod]
+db.sqlite3
+.env
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+staticfiles/
+media/
